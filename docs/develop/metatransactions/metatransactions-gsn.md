@@ -96,7 +96,7 @@ Paymaster | 0xa85B72783C660694228eE934e12611E9D3067F00
 Relayer Address : `https://{}.matic.today`
 
 :::caution
-Please consider using this Paymaster only for testing purposes.
+Please don't use this Paymaster for anything other than testing.
 :::
 
 ## Example
