@@ -211,14 +211,14 @@ contract StringOwner is BaseRelayRecipient, IKnowForwarderAddress {
     }
 
     function getTrustedForwarder() public override view returns(address) {
-		return trustedForwarder;
-	}
+		    return trustedForwarder;
+	  }
 
-	function setTrustedForwarder(address forwarder) public {
+	  function setTrustedForwarder(address forwarder) public {
         require(_msgSender() == deployer, "Only deployer can update it");
 
-		trustedForwarder = forwarder;
-	}
+		    trustedForwarder = forwarder;
+	  }
 
     // get current string
     function getString() public view returns(string memory) {
@@ -243,8 +243,8 @@ contract StringOwner is BaseRelayRecipient, IKnowForwarderAddress {
     }
 
     function versionRecipient() external virtual view override returns (string memory) {
-		return "1.0";
-	}
+		    return "1.0";
+	  }
 
 }
 ```
@@ -289,7 +289,7 @@ As we've our deployment scripts ready, lets just run migration.
 Find GUI ganache & run it or you can simply start ganache from cli using following command.
 
 ```bash
-npx ganache-cli -d -k 'istanbul' -l 1e8 &
+ganache-cli -d -k 'istanbul' -l 1e8 &
 ```
 
 #### Deploy RelayHub, Paymaster, StakeManager, Penalizer
@@ -297,7 +297,7 @@ npx ganache-cli -d -k 'istanbul' -l 1e8 &
 We're going to use `@opengsn/gsn` for installing these components in local blockchain,which is by default running on `http://localhost:8545`.
 
 ```bash
-npx gsn deploy
+gsn deploy -m <mnemonic-holding-text-file-path> -f <from-address>
 # for targetting another network, you need to 
 # check here https://docs.opengsn.org/gsn-provider/gsn-helpers.html#deploy
 ```
@@ -305,7 +305,7 @@ npx gsn deploy
 For targetting Matic Testnet, use following command.
 
 ```bash
-npx gsn deploy --network https://rpc-mumbai.matic.today
+gsn deploy -n https://rpc-mumbai.matic.today -m <mnemonic-holding-text-file-path> -f <from-address>
 ```
 
 #### Funding Paymaster
@@ -313,14 +313,14 @@ npx gsn deploy --network https://rpc-mumbai.matic.today
 It's not over yet, we need to fund out paymaster, that's what is going to pay for our transaction, so we need to fund it.
 
 ```bash
-npx gsn fund-paymaster
+gsn paymaster-fund -n <rpc-endpoint-address> -m <mnemonic-holding-text-file-path> -f <from-address>
 # for more control: https://docs.opengsn.org/gsn-provider/gsn-helpers.html#paymaster_fund
 ```
 
 For Matic Mumbai network, try using this command.
 
 ```bash
-npx gsn fund-paymaster --from <your-account-address> --hub <relay-hub-address> --paymaster <your-dapp-specific-paymaster> --network https://rpc-mumbai.matic.today
+npx gsn paymaster-fund -f <your-account-address> -m <mnemonic-holding-text-file-path> -h <relay-hub-address> --paymaster <your-dapp-specific-paymaster> -n https://rpc-mumbai.matic.today
 ```
 
 #### Running Relay Server
@@ -351,11 +351,11 @@ npx gsn relayer-run --Workdir <workdir> --DevMode --RelayHubAddress <hub_address
 And last but not least, we need to register our relay server, with `RelayHub`, because among all these moving parts, this is one, which is stiching them all together.
 
 ```bash
-npx gsn register-relayer
+npx gsn relayer-register -f <address-with-balance> -m <mnemonic-holding-text-file-path> -h <relay-hub-address-in-network>
 # also check here: https://docs.opengsn.org/gsn-provider/gsn-helpers.html#relayer_register
 ```
 
-For Matic Mumbai, don't forget to specify RPC endpoint using `--network` switch.
+For Matic Mumbai, don't forget to specify RPC endpoint using `--network` | `-n` switch.
 
 #### Finally Deployment
 
