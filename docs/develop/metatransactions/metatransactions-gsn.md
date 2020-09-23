@@ -84,6 +84,14 @@ This eventually reduces amount of checking target contract needs to do. In const
 
 For your help, we've already deployed RelayHub, StakeManager, Penalizer, TrustedForwarder, TestPaymaster contracts on Matic Mumbai Network.
 
+Contract | Deployment Details
+--- | ---
+RelayHub | 0x9021C360d183C48DA0a9f37A0C7Ad37586836ca5
+StakeManager | 0x3714E28ABb4197Af07A4E0353F5f0E5b47E31a22
+Penalizer | 0x9dD165dF1f4aA493C81b33dDdd699B96F362f92F
+VersionRegistry | 0xB9859Cd0A28A85C10463764a8218Bbd12554F014
+Forwarder | 0xB274df027Ea07cA31f16EC912CE1645358a31d43
+Paymaster | 0xa85B72783C660694228eE934e12611E9D3067F00
 
 
 ## Example
