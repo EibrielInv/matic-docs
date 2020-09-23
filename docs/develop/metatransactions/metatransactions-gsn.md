@@ -80,6 +80,12 @@ We can avoid auditing whole relay hub system, by putting an extra piece in image
 
 This eventually reduces amount of checking target contract needs to do. In constructor of target contract, we need to put trusted forwarder. We can also set a list of trusted forwarders, if situation demands. We need to also make it sure, only owner gets to update this trusted forwarder address set.
 
+## Deployment Details
+
+For your help, we've already deployed RelayHub, StakeManager, Penalizer, TrustedForwarder, TestPaymaster contracts on Matic Mumbai Network.
+
+
+
 ## Example
 
 Now we're going to write a meta transactions enabled dApp, to demonstrate how you can also integrate it in your application.
