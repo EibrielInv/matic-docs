@@ -93,6 +93,11 @@ VersionRegistry | 0xB9859Cd0A28A85C10463764a8218Bbd12554F014
 Forwarder | 0xB274df027Ea07cA31f16EC912CE1645358a31d43
 Paymaster | 0xa85B72783C660694228eE934e12611E9D3067F00
 
+Relayer Address : `https://{}.matic.today`
+
+:::caution
+Please consider using this Paymaster only for testing purposes.
+:::
 
 ## Example
 
